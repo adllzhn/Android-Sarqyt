@@ -4,7 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Surface
+import com.github.sarqyt.sarqytApp.ChooseEmailOrNumber.ForgotPasswordPage
+import com.github.sarqyt.sarqytApp.ChooseEmailOrNumber.InputView
 import com.github.sarqyt.sarqytApp.CreateNewPassword.CreateNewPassword
+import com.github.sarqyt.sarqytApp.LandingPage.LandingPage
+import com.github.sarqyt.sarqytApp.OTPview.ContentView
+import com.github.sarqyt.sarqytApp.OTPview.requesterList
+import com.github.sarqyt.sarqytApp.OTPview.textList
 import com.github.sarqyt.sarqytApp.ui.theme.SarqytAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SarqytAppTheme {
                 Surface {
-
+                    ForgotPasswordPage()
                 }
             }
         }
