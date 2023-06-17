@@ -3,6 +3,7 @@ package com.github.sarqyt.sarqytApp.LandingPage
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -25,51 +26,39 @@ import com.github.sarqyt.sarqytApp.ui.theme.color3
 
 @Composable
 fun HotelCard() {
-    LazyRow(
-        Modifier.height(300.dp),
-        contentPadding = PaddingValues(horizontal = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        item {
             HotelItem(
                 imagePainter = painterResource(id = R.drawable.grand_hotel_du_cap_ferrat),
                 name = "Palazzo Hotel",
                 city = "Almaty",
                 backgroundColor = MaterialTheme.colors.primary
             )
-        }
-        item {
             HotelItem(
                 imagePainter = painterResource(id = R.drawable.grand_hotel_du_cap_ferrat),
                 name = "Palazzo Hotel",
                 city = "Almaty",
                 backgroundColor = MaterialTheme.colors.primary
             )
-        }
-        item {
             HotelItem(
                 imagePainter = painterResource(id = R.drawable.grand_hotel_du_cap_ferrat),
                 name = "Palazzo Hotel",
                 city = "Almaty",
                 backgroundColor = MaterialTheme.colors.primary
             )
-        }
-        item {
             HotelItem(
                 imagePainter = painterResource(id = R.drawable.grand_hotel_du_cap_ferrat),
                 name = "Palazzo Hotel",
                 city = "Almaty",
                 backgroundColor = MaterialTheme.colors.primary
             )
-        }
-        item {
             HotelItem(
                 imagePainter = painterResource(id = R.drawable.grand_hotel_du_cap_ferrat),
                 name = "Palazzo Hotel",
                 city = "Almaty",
                 backgroundColor = MaterialTheme.colors.primary
             )
-        }
     }
 }
 
@@ -82,30 +71,22 @@ fun HotelItem(
     starCount: Double = 4.8,
     reviews: Double = 4.56
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxHeight()
-            .width(350.dp)
-    ) {
+    Column{
         Card(
             modifier = Modifier
                 .width(400.dp)
                 .height(120.dp)
-                .fillMaxSize()
                 .clickable { },
             shape = RoundedCornerShape(30.dp),
             contentColor = backgroundColor,
             elevation = 10.dp
         ) {
             Row(
-                modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(
-                    space = 30.dp,
-                    alignment = Alignment.CenterHorizontally
-                )
+                modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Box(
                     modifier = Modifier
-                        .fillMaxHeight(), contentAlignment = Alignment.Center
+                        .fillMaxHeight().padding(start = 10.dp), contentAlignment = Alignment.Center
                 ) {
                     Row {
                         Card(
@@ -144,7 +125,7 @@ fun HotelItem(
                                 )
                                 Spacer(modifier = Modifier.width(5.dp))
                                 Text(
-                                    text = "($reviews K reviews)",
+                                    text = "(${reviews}K reviews)",
                                     color = Color.Gray,
                                     fontSize = 10.sp
                                 )
@@ -152,17 +133,13 @@ fun HotelItem(
                         }
                     }
                 }
-                Spacer(
-                    modifier = Modifier
-                        .weight(1f)
-                )
                 Box(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxHeight()
                         .padding(top = 15.dp)
                 ) {
                     Column() {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
+                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(end = 10.dp)) {
                             Image(
                                 painter = painterResource(id = R.drawable.baseline_tenge_green),
                                 contentDescription = "",
@@ -175,15 +152,17 @@ fun HotelItem(
                                 fontWeight = FontWeight.Bold
                             )
                         }
-                        Spacer(modifier = Modifier.height(20.dp))
+                        Spacer(modifier = Modifier.height(30.dp))
                         Image(
                             painter = painterResource(id = R.drawable.baseline_bookmark_border_24),
                             contentDescription = "",
-                            modifier = Modifier.padding(top = 10.dp, start = 40.dp).size(30.dp)
+                            modifier = Modifier
+                                .size(30.dp)
                         )
                     }
                 }
             }
         }
+        Spacer(modifier = Modifier.height(15.dp))
     }
 }

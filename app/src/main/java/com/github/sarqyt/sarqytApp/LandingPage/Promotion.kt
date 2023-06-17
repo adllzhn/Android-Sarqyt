@@ -39,7 +39,7 @@ fun Promotion() {
     }
     Spacer(modifier = Modifier.height(20.dp))
     LazyRow(
-        Modifier.height(300.dp),
+        Modifier.height(270.dp),
         contentPadding = PaddingValues(horizontal = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {

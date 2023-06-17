@@ -16,7 +16,6 @@ fun CongratulationPopup(onDismiss: () -> Unit) {
         AlertDialog(
             onDismissRequest = { onDismiss() },
             title = {
-
                 Text(
                     text = "Condratulations!",
                     color = color3,

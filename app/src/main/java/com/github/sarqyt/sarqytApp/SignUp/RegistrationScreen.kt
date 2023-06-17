@@ -1,7 +1,9 @@
 package com.github.sarqyt.sarqytApp
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -25,8 +27,9 @@ fun RegistrationScreen() {
 
     Column(
         modifier = Modifier
-            .padding(16.dp)
-            .fillMaxSize(),
+            .fillMaxSize()
+            .padding(16.dp, bottom = 40.dp)
+            .verticalScroll(state = ScrollState(1)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -38,7 +41,7 @@ fun RegistrationScreen() {
             colors = TextFieldDefaults.textFieldColors(backgroundColor = colorBackgroundTextField),
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
             value = nickName,
             onValueChange = { nickName = it },
@@ -46,7 +49,7 @@ fun RegistrationScreen() {
             colors = TextFieldDefaults.textFieldColors(backgroundColor = colorBackgroundTextField),
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
             value = dateOfBirth,
             onValueChange = { dateOfBirth = it },
@@ -54,7 +57,7 @@ fun RegistrationScreen() {
             colors = TextFieldDefaults.textFieldColors(backgroundColor = colorBackgroundTextField),
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
@@ -68,7 +71,7 @@ fun RegistrationScreen() {
             maskNumber = '0',
             onPhoneChanged = { phoneNumber = it })
         dropDownMenu()
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         Button(
             modifier = Modifier
                 .fillMaxWidth()
